@@ -17,27 +17,7 @@ import React from 'react';
 //       });
 // }
 
-async function getCards() {
-  let fetchJoke = {};
-
-  try {
-    fetchJoke = await fetch('https://deckofcardsapi.com/api/deck/g1swml2iwvv0/draw/?count=5');
-  } catch (error) {
-    return Promise.reject(error);
-  }
-  
-  const json = await fetchJoke.json();
-  const value = json.cards;
-
-  console.log('value', value);
-
-  value.forEach(function(element, i) {
-    console.log(element);
-    document.querySelector('.jokes').insertAdjacentHTML('afterbegin', `<img src=${element.image} />`);
-  });
-}
-
-async function getJoke() {
+const chuckNorrisApi = async function getJoke() {
   let fetchJoke = {};
 
   try {
@@ -54,17 +34,4 @@ async function getJoke() {
   });
 }
 
-function displayJoke() {
-  const element = (
-    <section>
-      <h1>5 card stud poker</h1>
-      <span className='jokes'></span>
-    </section>
-  );
-
-  getCards();
-
-  return element;
-}
-
-export default displayJoke;
+export default chuckNorrisApi;
