@@ -4,8 +4,8 @@ class UnorderedList extends React.Component {
     render() {
         var listItems = this.props.items.map(function(item) {
             return (
-              <li key="{item.name}">
-                <a href="{item.link}">{item.name}</a>
+              <li key={item.code}>
+                <img  alt={item.value + item.suit} src={item.image}></img>
               </li>
             );
           });
