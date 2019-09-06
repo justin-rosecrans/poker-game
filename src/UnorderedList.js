@@ -4,13 +4,14 @@ class UnorderedList extends React.Component {
     render() {
         var listItems = this.props.items.map(function(item) {
             return (
-              <li key={item.code}>
-                <img  alt={item.value + item.suit} src={item.image}></img>
+              <li className="gaps" key={item.code}>
+                <img className="image-dimension" alt={item.value + item.suit} src={item.image}></img>
+
               </li>
             );
           });
         return (
-            <ul>
+            <ul className="display-horizontal">
                 {listItems}
             </ul>
         );   

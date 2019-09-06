@@ -1,6 +1,7 @@
 // Import react JS here.
 import React from 'react'
 import UnorderedList from './UnorderedList';
+import DisplayResult from './DisplayResult';
 
 
 class App1 extends React.Component {
@@ -14,7 +15,7 @@ class App1 extends React.Component {
 
   getData() {
     var that = this;
-    fetch('https://deckofcardsapi.com/api/deck/g1swml2iwvv0/draw/?count=5')
+    fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=5')
     .then(function(response) {
       return response.json();
     }) 
@@ -32,7 +33,10 @@ class App1 extends React.Component {
    
   render() {
     return ( 
-      <UnorderedList items = {this.state.cards} ></UnorderedList>
+      <div>
+      <UnorderedList items = {this.state.cards} ></UnorderedList> 
+      <DisplayResult/>
+      </div>
     );
   }
 }
