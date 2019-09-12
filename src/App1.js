@@ -35,7 +35,7 @@ class App1 extends React.Component {
     return ( 
       <div>
       <UnorderedList items = {this.state.cards} ></UnorderedList> 
-      <DisplayResult/>
+      <DisplayResult items = {this.state.cards}/>
       </div>
     );
   }
