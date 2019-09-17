@@ -7,15 +7,24 @@ class DisplayResult extends React.Component {
         this.isPairRule = this.isPairRule.bind(this);
     }
       isPairRule(listItems) {
+          var finalString='';
+          for(var index in listItems) {
+              finalString = finalString + listItems[index].code.substring(0,1);
+          }
+        
+          const onePairRegex = new RegExp('.*(\\w)\\1.*#.*')
+          console.log(finalString);
+
+
         for(var j=0; j< listItems.length; j++) {
             for(var i=j+1 ; i < listItems.length; i++) {
                 var nextElement = listItems[i];
                 if(listItems[j].value === nextElement.value) {
-                     return 'true';
+                     return 'Two of a kind!';
                 }
             }
         }
-        return 'false';
+        return '';
 
     };
 
@@ -25,8 +34,7 @@ class DisplayResult extends React.Component {
          
         return (
             <div>
-            <div> <h1>This is result where we display </h1></div>
-            <div> <h1>This is a pair rule :{this.isPairRule(listItems)} </h1></div>
+                <div> <h1>{this.isPairRule(listItems)} </h1></div>
             </div>
         );
     }
